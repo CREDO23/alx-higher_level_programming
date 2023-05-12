@@ -4,4 +4,4 @@ import string
 
 upper = string.ascii_uppercase
 
-print("{}".format(upper))
+print(upper)
