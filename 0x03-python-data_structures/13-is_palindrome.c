@@ -11,7 +11,7 @@ int is_palindrome(listint_t **head)
 	listint_t *h = *head;
 	int *tab =  NULL;
 	int len = 0;
-	int i;
+	int i = 0;
 
 	if (h == NULL)
 		return (1);
@@ -22,10 +22,11 @@ int is_palindrome(listint_t **head)
 		*(tab + len++) = h->n;
 		h = h->next;
 	}
-	for (i = 0; i < len / 2; i++)
+	while (i < len / 2)
 	{
 		if (tab[i] != tab[len - i - 1])
 			return (0);
+		i++;
 	}
 	free(tab);
 	return (1);
