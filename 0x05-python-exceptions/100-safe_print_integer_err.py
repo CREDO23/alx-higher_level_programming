@@ -9,5 +9,5 @@ def safe_print_integer_err(value):
 
         return True
     except Exception as te:
-        stderr.write("{}\n".format(te))
+        stderr.write("Exception: {}\n".format(te))
         return False
