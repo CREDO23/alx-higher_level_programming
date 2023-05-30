@@ -8,8 +8,6 @@ class Square():
     def __init__(self, size=0):
 
         """Initializing this square class
-        Args:
-            size: represnets the size of the square defined
         Raises:
             TypeError: if size is not integer
             ValueError: if size is less than zero
@@ -32,9 +30,9 @@ class Square():
         return self.__size
 
     @size.setter
-    def size(self, size):
+    def size(self, newsize):
         """Set the size of the square"""
-        if not isinstance(size, int):
+        if not isinstance(newsize, int):
             raise TypeError('size must be an integer')
-        if size < 0:
+        if newsize < 0:
             raise ValueError('size must be >= 0')
