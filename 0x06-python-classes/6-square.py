@@ -40,39 +40,44 @@ class Square():
 
         self.__size = newsize
 
-    def my_print(self):
+    @property
+    def position(self):
+        """returns the position of the square
+        """
+        return self.__position
 
+    @position.setter
+    def position(self, value):
+        """set the position of this Square
+        """
+        if not isinstance(value, tuple):
+            raise TypeError('position must be a tuple of 2 positive integers')
+        if len(value) != 2:
+            raise TypeError('position must be a tuple of 2 positive integers')
+        if len([i for i in value if isinstance(i, int) and i >= 0]) != 2:
+            raise TypeError('position must be a tuple of 2 positive integers')
+        self.__position = value
+
+    def area(self):
+        """returns the area of the square
+        """
+        return self.__size * self.__size
+
+    def p_pos(self):
+        """returns the position of the square"""
         pos = ""
         if self.size == 0:
             return "\n"
-        for w in range(self.position[1]):
+        for x in range(self.position[1]):
             pos += "\n"
-        for w in range(self.size):
+        for y in range(self.size):
             for i in range(self.position[0]):
                 pos += " "
             for j in range(self.size):
                 pos += "#"
             pos += "\n"
+        return pos
 
-        print(pos, end='')
-
-
-    @property
-    def position(self):
-        """Return the position of the square
-        """
-        return self.__position
-
-    @position.setter
-    def position(self, newpos):
-        """set the new position of the Square
-        Raises:
-            TypeError: if value is not a tuple of two integers
-        """
-        if not isinstance(newpos, tuple):
-            raise TypeError('position must be a tuple of 2 positive integers')
-        if len(newpos) != 2:
-            raise TypeError('position must be a tuple of 2 positive integers')
-        if len([i for i in newpos if isinstance(i, int) and i >= 0]) != 2:
-            raise TypeError('position must be a tuple of 2 positive integers')
-        self.__position = newpos
+    def my_print(self):
+        """print the square with position"""
+        print(self.p_pos(), end='')
