@@ -42,16 +42,20 @@ class Square():
 
     def my_print(self):
 
+        pos = ""
         if self.size == 0:
-            print("")
-        for x in range(self.position[1]):
-            print("")
-        for y in range(self.size):
+            return "\n"
+        for w in range(self.position[1]):
+            pos += "\n"
+        for w in range(self.size):
             for i in range(self.position[0]):
-                print(" ", end='')
+                pos += " "
             for j in range(self.size):
-                print("#", end='')
-            print("")
+                pos += "#"
+            pos += "\n"
+
+        print(pos, end='')
+
 
     @property
     def position(self):
