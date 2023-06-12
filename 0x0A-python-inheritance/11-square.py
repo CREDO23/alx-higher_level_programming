@@ -13,7 +13,7 @@ class Square(Rectangle):
         self.integer_validator("size", size)
         super().__init__(width=size, height=size)
         self.__size = size
-    
+
     def __str__(self):
         '''Print the square class as str'''
         return '[Square] ' + str(self.__size) + '/' + str(self.__size)
