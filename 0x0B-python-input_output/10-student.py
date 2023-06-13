@@ -15,14 +15,7 @@ class Student():
     def to_json(self, attrs=None):
         '''Return the Student json representation (dict)'''
 
-        if isinstance(attrs, list) and len(attrs) > 0:
-
-            new_dict = {}
-
-            for k in attrs:
-                if k in self.__dict__:
-                    new_dict[k] = self.__dict__[k]
-
-            return new_dict
+        if type(attrs) == list and all(type(el) == str for el in attrs):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
         else:
             return self.__dict__
