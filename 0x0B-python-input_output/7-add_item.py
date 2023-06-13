@@ -12,7 +12,7 @@ items = []
 
 try:
     items = load_from_json_file(filename)
+except FileNotFoundError:
+    items = []
     items.extend(sys.argv[1:])
     save_to_json_file(items, filename)
-except Exception as e:
-    save_to_json_file([], filename)
